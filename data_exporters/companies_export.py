@@ -3,7 +3,7 @@ import pandas as pd
 
 db_user = 'berkleycenter'
 db_password = 'BerkleyCenterDB1//'
-db_host = '3.135.235.86'
+db_host = '18.225.36.8'
 db_port = '3306'
 db_name = 'berkleyStartUp'
 
