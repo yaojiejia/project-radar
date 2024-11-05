@@ -1,0 +1,108 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - companies_process
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: companies_from_file
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: companies_from_file
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - companies_process
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: companies_founders_db
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: companies_founders_db
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - companies_process
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: companies_from_db
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: companies_from_db
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - companies_export
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: companies_process
+  retry_config: null
+  status: updated
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - companies_from_file
+  - companies_founders_db
+  - companies_from_db
+  uuid: companies_process
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: companies_export
+  retry_config: null
+  status: failed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - companies_process
+  uuid: companies_export
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-06-02 19:35:11.602172+00:00'
+data_integration: null
+description: companies pipeline
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: company
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: company
+variables_dir: /home/berkley-center-linux/.mage_data/mage_pipeline
+widgets: []

@@ -1,0 +1,25 @@
+import os 
+import pandas as pd
+if 'data_loader' not in globals():
+    from mage_ai.data_preparation.decorators import data_loader
+if 'test' not in globals():
+    from mage_ai.data_preparation.decorators import test
+PATH = '/home/berkley-center-linux/Desktop/code/project-radar/data'
+parent_dir = os.listdir(PATH)[0]
+df_list = []
+
+@data_loader
+def load_company_data(*args, **kwargs):
+    try:
+        for path in os.listdir(PATH + '/' + parent_dir + '/companies'): 
+            file_path = os.path.join(PATH + '/' + parent_dir + '/companies', path)
+            df = pd.read_csv(file_path)
+            df_list.append(df)
+
+        companies_list = pd.concat(df_list, ignore_index=True)
+    
+        return companies_list
+    except Exception as e: 
+        print('no companies found \n',e)
+
+

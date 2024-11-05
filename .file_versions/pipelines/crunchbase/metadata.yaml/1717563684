@@ -1,0 +1,294 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - companies_processing
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: companies
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: companies
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - founder__processing
+  - test
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: founders_new
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: founders_new
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - fundraise_processing
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: fundraise
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: fundraise
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - investor_processing
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: investors
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: investors
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - companies_exporter
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: companies_processing
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - companies
+  - founder__processing
+  - companies_existing
+  uuid: companies_processing
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - companies_processing
+  - founder_exporter
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: founder_ processing
+  retry_config: null
+  status: updated
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - founders_new
+  - founders_existing
+  uuid: founder__processing
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - fundraise_exporter
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: fundraise_processing
+  retry_config: null
+  status: updated
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - fundraise
+  - investor_processing
+  uuid: fundraise_processing
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - fundraise_processing
+  - investor_exporter
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: investor_processing
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - investors
+  - investors_existing
+  uuid: investor_processing
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: founder_exporter
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - founder__processing
+  uuid: founder_exporter
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: investor_exporter
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - investor_processing
+  uuid: investor_exporter
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: companies_exporter
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - companies_processing
+  uuid: companies_exporter
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: fundraise_exporter
+  retry_config: null
+  status: failed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - fundraise_processing
+  uuid: fundraise_exporter
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - founder__processing
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: founders_existing
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: founders_existing
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - investor_processing
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: investors_existing
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: investors_existing
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: test
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - founders_new
+  uuid: test
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - companies_processing
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: companies_existing
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: companies_existing
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-04-01 14:54:06.757049+00:00'
+data_integration: null
+description: grabs data from streamlit stored crunchbase files and pushes to mysql
+  database
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: crunchbase
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: crunchbase
+variables_dir: /home/berkley-center-linux/.mage_data/mage_pipeline
+widgets: []

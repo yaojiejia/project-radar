@@ -1,0 +1,214 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - individual_process
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: individual_from_file
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: individual_from_file
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - individual_export
+  - individual_company_process
+  - individual_founder_process
+  - individual_fundraise_process
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: individual_process
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - individual_from_file
+  uuid: individual_process
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: individual_export
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - individual_process
+  uuid: individual_export
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - individual_company_export
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: individual_company_process
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - individual_process
+  - individual_companies_from_db
+  - individual_founder_export
+  - individual_founder_from_db
+  uuid: individual_company_process
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - individual_company_process
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: individual_companies_from_db
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: individual_companies_from_db
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - individual_founder_export
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: individual_founder_process
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - individual_process
+  - individual_founder_from_db
+  uuid: individual_founder_process
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - individual_founder_process
+  - individual_company_process
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: individual_founder_from_db
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: individual_founder_from_db
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - individual_company_process
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: individual_founder_export
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - individual_founder_process
+  uuid: individual_founder_export
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: individual_company_export
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - individual_company_process
+  uuid: individual_company_export
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - individual_fundraise_export
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: individual_fundraise_process
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - individual_process
+  uuid: individual_fundraise_process
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: individual_fundraise_export
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - individual_fundraise_process
+  uuid: individual_fundraise_export
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-06-06 17:46:28.620329+00:00'
+data_integration: null
+description: update individual entry
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: individual
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: individual
+variables_dir: /home/berkley-center-linux/.mage_data/mage_pipeline
+widgets: []

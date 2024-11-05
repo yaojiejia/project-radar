@@ -1,0 +1,8 @@
+# MySQL
+version: 0.1.1
+default:
+ MYSQL_DATABASE: berkleyStartUp
+ MYSQL_HOST: 3.135.235.86
+ MYSQL_PASSWORD: BerkleyCenterDB1//
+ MYSQL_PORT: 3306
+ MYSQL_USER: berkleycenter
